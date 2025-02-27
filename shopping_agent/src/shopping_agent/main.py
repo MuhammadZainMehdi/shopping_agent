@@ -8,7 +8,7 @@ load_dotenv()
 class ShoppingAgent(Flow):
     model = "gemini/gemini-2.0-flash"
     
-    inventory = json.load(open("D:/PIAIC/Q2/shopping_agent/src/shopping_agent/inventory.json"))
+    inventory = json.load(open("inventory.json"))
     cart = []
 
     @start()
