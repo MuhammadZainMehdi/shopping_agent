@@ -6,7 +6,7 @@ import json
 load_dotenv()
 
 class ShoppingAgent(Flow):
-    model = "gemini/gemini-2.0-flash"
+    model = "gemini/gemini-1.5-flash"
     
     inventory = json.load(open("inventory.json"))
     cart = []
@@ -21,9 +21,7 @@ class ShoppingAgent(Flow):
         response = completion(
             model=self.model,
             messages=[
-                {"role": "user", "content": f"You are a shopping assistant. 
-                You are given a user query {user_query}. 
-                Process the user query and return whether the user is looking to search for a product, compare products, or manage a shopping cart (add/view items)."}
+                {"role": "user", "content": f"You are a shopping assistant. You are given a user query {user_query}. Process the user query and return whether the user is looking to search for a product, compare products, or manage a shopping cart."}
             ]
         )   
         query_type = response["choices"][0]["message"]["content"]
